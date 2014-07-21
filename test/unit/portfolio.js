@@ -21,8 +21,11 @@ describe('Portfolio', function(){
     it('Should add stocks to portfolio', function(){
       var tech = new Portfolio('tech');
       var aapl = new Stock('aapl', 100);
+      var goog = new Stock('goog', 56);
+
       tech.addStock(aapl);
-      expect(tech.stocks).to.be.length(1);
+      tech.addStock(goog);
+      expect(tech.stocks).to.be.length(2);
       
     });
   });
