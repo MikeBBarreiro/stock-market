@@ -4,8 +4,8 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Portfolio = require('../../app/models/portfolio.js');
-
+var Portfolio = require('../../app/models/portfolio');
+var Stock = require('../../app/models/stock');
 
 describe('Portfolio', function(){
   describe('Constructor', function(){
@@ -15,6 +15,15 @@ describe('Portfolio', function(){
       expect(tech.name).to.be.equal('Tech Portfolio');
       expect(tech.stocks).to.be.length(0);
 
+    });
+  });
+  describe('.addStock',function(){
+    it('Should add stocks to portfolio', function(){
+      var tech = new Portfolio('tech');
+      var aapl = new Stock('aapl', 100);
+      tech.addStock(aapl);
+      expect(tech.stocks).to.be.length(1);
+      
     });
   });
 });
